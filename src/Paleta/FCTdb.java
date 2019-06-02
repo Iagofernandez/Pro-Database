@@ -56,7 +56,7 @@ public class FCTdb extends javax.swing.JFrame {
 
             },
             new String [] {
-                "CIF", "Empresa", "Telefono"
+                "CIF", "Escuela", "Telefono"
             }
         ));
         jScrollPane1.setViewportView(tabla2);
