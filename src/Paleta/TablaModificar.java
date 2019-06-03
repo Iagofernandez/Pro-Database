@@ -33,7 +33,7 @@ public class TablaModificar extends javax.swing.JFrame {
         txtId = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         txtApellidos = new javax.swing.JTextField();
-        txtEmpresa = new javax.swing.JTextField();
+        txtEscuela = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
         btnSalir = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
@@ -112,7 +112,7 @@ public class TablaModificar extends javax.swing.JFrame {
                                 .addGap(136, 136, 136)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtTelefono)
-                                    .addComponent(txtEmpresa)
+                                    .addComponent(txtEscuela)
                                     .addComponent(txtApellidos)
                                     .addComponent(txtNombre)
                                     .addComponent(txtId))))
@@ -139,7 +139,7 @@ public class TablaModificar extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(6, 6, 6)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -187,7 +187,7 @@ public class TablaModificar extends javax.swing.JFrame {
 
         
 
-        db.update2(db.getCif(txtId.getText()), txtEmpresa.getText(), txtTelefono.getText());
+        db.update2(db.getCif(txtId.getText()), txtEscuela.getText(), txtTelefono.getText());
 
         txtId.setText(null);
 
@@ -199,7 +199,7 @@ public class TablaModificar extends javax.swing.JFrame {
 
         txtCif.setText(null);
 
-        txtEmpresa.setText(null);
+        txtEscuela.setText(null);
 
         txtTelefono.setText(null);
 
@@ -257,7 +257,7 @@ public class TablaModificar extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtCif;
-    private javax.swing.JTextField txtEmpresa;
+    private javax.swing.JTextField txtEscuela;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtTelefono;
