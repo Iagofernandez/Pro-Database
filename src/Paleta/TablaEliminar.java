@@ -41,7 +41,7 @@ public class TablaEliminar extends javax.swing.JFrame {
         txtNombre = new javax.swing.JTextField();
         txtApellidos = new javax.swing.JTextField();
         txtCif = new javax.swing.JTextField();
-        txtEmpresa = new javax.swing.JTextField();
+        txtEscuela = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
         btnBorrar = new javax.swing.JButton();
 
@@ -55,7 +55,7 @@ public class TablaEliminar extends javax.swing.JFrame {
 
         jLabel5.setText("CIF");
 
-        jLabel6.setText("Empresa");
+        jLabel6.setText("Escuela");
 
         jLabel7.setText("Telefono");
 
@@ -98,7 +98,7 @@ public class TablaEliminar extends javax.swing.JFrame {
                         .addGap(89, 89, 89)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCif, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
@@ -134,7 +134,7 @@ public class TablaEliminar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txtEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
@@ -176,7 +176,7 @@ public class TablaEliminar extends javax.swing.JFrame {
 
         
 
-        db.update2(db.getCif(txtId.getText()), txtEmpresa.getText(), txtTelefono.getText());
+        db.update2(db.getCif(txtId.getText()), txtEscuela.getText(), txtTelefono.getText());
 
         txtId.setText(null);
 
@@ -188,7 +188,7 @@ public class TablaEliminar extends javax.swing.JFrame {
 
         txtCif.setText(null);
 
-        txtEmpresa.setText(null);
+        txtEscuela.setText(null);
 
         txtTelefono.setText(null);
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -253,7 +253,7 @@ public class TablaEliminar extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtCif;
-    private javax.swing.JTextField txtEmpresa;
+    private javax.swing.JTextField txtEscuela;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtTelefono;

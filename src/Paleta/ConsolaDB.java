@@ -6,7 +6,7 @@
 package Paleta;
 
 import Metodos.Metodos;
-import static Metodos.Metodos.createNewTable;
+import static Metodos.Metodos.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -36,10 +36,8 @@ public class ConsolaDB extends javax.swing.JFrame {
         boton1 = new javax.swing.JButton();
         boton3 = new javax.swing.JButton();
         boton2 = new javax.swing.JButton();
-        botonSalir = new javax.swing.JButton();
         boton4 = new javax.swing.JButton();
         boton5 = new javax.swing.JButton();
-        boton6 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtDni = new javax.swing.JTextField();
@@ -48,10 +46,12 @@ public class ConsolaDB extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         taboa = new javax.swing.JTable();
-        txtEmpresa = new javax.swing.JTextField();
+        txtEscuela = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
+        botonSalir = new javax.swing.JButton();
+        boton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,13 +83,6 @@ public class ConsolaDB extends javax.swing.JFrame {
             }
         });
 
-        botonSalir.setText("Salir");
-        botonSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonSalirActionPerformed(evt);
-            }
-        });
-
         boton4.setText("Mostrar");
         boton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,13 +94,6 @@ public class ConsolaDB extends javax.swing.JFrame {
         boton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton5ActionPerformed(evt);
-            }
-        });
-
-        boton6.setText("Escuela");
-        boton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton6ActionPerformed(evt);
             }
         });
 
@@ -139,9 +125,9 @@ public class ConsolaDB extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(taboa);
 
-        txtEmpresa.addActionListener(new java.awt.event.ActionListener() {
+        txtEscuela.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmpresaActionPerformed(evt);
+                txtEscuelaActionPerformed(evt);
             }
         });
 
@@ -176,30 +162,24 @@ public class ConsolaDB extends javax.swing.JFrame {
                                 .addComponent(Telefono)
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(boton6)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(19, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(boton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(boton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(boton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(boton5))
-                    .addComponent(botonSalir))
+                .addComponent(boton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(boton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(boton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(boton5)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -214,7 +194,7 @@ public class ConsolaDB extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txtEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Telefono)
@@ -235,13 +215,23 @@ public class ConsolaDB extends javax.swing.JFrame {
                     .addComponent(boton3)
                     .addComponent(boton5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(boton6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botonSalir)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                .addContainerGap())
         );
+
+        botonSalir.setText("Salir");
+        botonSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonSalirActionPerformed(evt);
+            }
+        });
+
+        boton6.setText("Escuela");
+        boton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -250,12 +240,21 @@ public class ConsolaDB extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 241, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botonSalir)
+                    .addComponent(boton6))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addComponent(boton6)
+                .addGap(18, 18, 18)
+                .addComponent(botonSalir))
         );
 
         pack();
@@ -264,7 +263,7 @@ public class ConsolaDB extends javax.swing.JFrame {
     private void boton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton1ActionPerformed
         createNewTable();    
 
-        bd.insert2(txtDni.getText(), txtEmpresa.getText(), txtTelefono.getText());
+        bd.insert2(txtDni.getText(), txtEscuela.getText(), txtTelefono.getText());
 
         bd.insert(txtNombre.getText(), txtApellido.getText(), txtDni.getText());        
 
@@ -289,7 +288,7 @@ public class ConsolaDB extends javax.swing.JFrame {
 
         txtDni.setText(null);
 
-        txtEmpresa.setText(null);
+        txtEscuela.setText(null);
 
         txtTelefono.setText(null);
 
@@ -300,9 +299,9 @@ public class ConsolaDB extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,"Alumno ingresado correctamente.");
     }//GEN-LAST:event_boton1ActionPerformed
 
-    private void txtEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmpresaActionPerformed
+    private void txtEscuelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEscuelaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmpresaActionPerformed
+    }//GEN-LAST:event_txtEscuelaActionPerformed
 
     private void boton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton2ActionPerformed
         txtNombre.setText(null);
@@ -313,7 +312,7 @@ public class ConsolaDB extends javax.swing.JFrame {
 
         txtDni.setText(null);
 
-        txtEmpresa.setText(null);
+        txtEscuela.setText(null);
 
         txtTelefono.setText(null);
     }//GEN-LAST:event_boton2ActionPerformed
@@ -344,7 +343,7 @@ public class ConsolaDB extends javax.swing.JFrame {
     }//GEN-LAST:event_botonSalirActionPerformed
 
     private void boton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton6ActionPerformed
-      FCTdb nueva = new FCTdb();
+      Escuela nueva = new Escuela();
 
         nueva.setVisible(true);
     }//GEN-LAST:event_boton6ActionPerformed
@@ -415,7 +414,7 @@ public class ConsolaDB extends javax.swing.JFrame {
     private javax.swing.JTable taboa;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtDni;
-    private javax.swing.JTextField txtEmpresa;
+    private javax.swing.JTextField txtEscuela;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
