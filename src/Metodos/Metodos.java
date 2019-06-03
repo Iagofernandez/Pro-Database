@@ -25,7 +25,7 @@ public class Metodos {
 
  
 
-        String url = "jdbc:sqlite:/home/local/DANIELCASTELAO/slorenzorodriguez/NetBeansProjects/BaseDatosSQLIT/testeo.db" + fileName;
+        String url = "jdbc:sqlite:C:\\Users\\X541\\Documents\\NetBeansProjects\\Database\\" + fileName;
 
  
 
@@ -59,17 +59,17 @@ public class Metodos {
 
         // url = ruta de la base de datos
 
-        String url = "jdbc:sqlite:/home/local/DANIELCASTELAO/slorenzorodriguez/NetBeansProjects/BaseDatosSQLIT/testeo.db";
+        String url = "jdbc:sqlite:C:\\Users\\X541\\Documents\\NetBeansProjects\\Database\\testeo.db";
 
         
 
          //SQL statement for creating a new table
 
-        String sql2 = "CREATE TABLE IF NOT EXISTS FCT (\n"
+        String sql2 = "CREATE TABLE IF NOT EXISTS ESCUELA (\n"
 
-                + "	dni PRIMARY KEY,\n"
+                + "	dni PRIMARY KEY, \n"
 
-                + "	nome text NOT NULL, \n"
+                + "	nombre text NOT NULL, \n"
 
                 + "     telefono text \n"              
 
@@ -79,22 +79,21 @@ public class Metodos {
 
         
 
-        String sql = "CREATE TABLE IF NOT EXISTS alumno (\n"
+        String sql = "CREATE TABLE IF NOT EXISTS ALUMNO (\n"
 
-                + "	id integer PRIMARY KEY,\n"
+                + "	id integer PRIMARY KEY, \n"
 
-                + "	nome text NOT NULL,\n"
+                + "	nombre text NOT NULL, \n"
 
                 + "	apellido text NOT NULL, \n"
 
-                + "     ciudad text NOT NULL, \n"
-
                 + "     dni text, \n"
 
-                + "     FOREIGN KEY(dni) REFERENCES FCT (dni) \n"
+                + "     FOREIGN KEY(dni) REFERENCES ESCUELA (dni) \n"
 
                 + " );";
 
+        
         
 
         try (Connection conn = DriverManager.getConnection(url);
@@ -103,9 +102,9 @@ public class Metodos {
 
             // creamos la tabla cargando nuestra sentencia en la variable sql
 
-            stmt.execute(sql);
-
             stmt.execute(sql2);
+
+            stmt.execute(sql);
 
         } catch (SQLException e) {
 
@@ -121,7 +120,7 @@ public class Metodos {
 
         // url = ruta de nuestra base de datos
 
-        String url = "jdbc:sqlite:/home/local/DANIELCASTELAO/slorenzorodriguez/NetBeansProjects/BaseDatosSQLIT/testeo.db";
+        String url = "jdbc:sqlite:C:\\Users\\X541\\Documents\\NetBeansProjects\\Database\\testeo.db";
 
         Connection conn = null;
 
@@ -148,8 +147,7 @@ public class Metodos {
     
 
     public void selectAll(){
-
-        String sql = "SELECT id, nome, apellido, ciudad, dni FROM alumno";
+ String sql = "SELECT id, nombre, apellido, dni FROM ALUMNO";
 
         
 
@@ -167,11 +165,11 @@ public class Metodos {
 
                 System.out.println(rs.getInt("id") +  "\t" + 
 
-                                   rs.getString("nome") + "\t" +
+                                   rs.getString("nombre") + "\t" +
 
                                    rs.getString("apellido") + "\t"+
 
-                                   rs.getString("ciudad") + "\t"+
+                                   
 
                                    rs.getString("dni"));
 
@@ -181,19 +179,16 @@ public class Metodos {
 
             System.out.println(e.getMessage());
 
+        
+        
+            
+
         }
 
     }
 
-    public void insert(String nome, String apellido, String ciudad, String dni) {
-
-       
-
-        // insert para añadir clientes a nuestra base de datos
-
-        // el id se genera autómaticamente
-
-        String sql = "INSERT INTO alumno (nome,apellido,ciudad,dni) VALUES(?,?,?,?)";
+    public void insert(String nombre, String apellido, String dni) {
+String sql = "INSERT INTO ALUMNO (nombre,apellido,dni) VALUES(?,?,?)";
 
  
 
@@ -201,13 +196,11 @@ public class Metodos {
 
                 PreparedStatement pstmt = conn.prepareStatement(sql)){
 
-            pstmt.setString(1, nome);
+            pstmt.setString(1, nombre);
 
             pstmt.setString(2, apellido);
 
-            pstmt.setString(3, ciudad);
-
-            pstmt.setString(4, dni);
+            pstmt.setString(3, dni);
 
             pstmt.executeUpdate();
 
@@ -218,16 +211,16 @@ public class Metodos {
         } catch (SQLException e) {
 
             System.out.println(e.getMessage());
-
-        }       
-
-        
+       
 
         
+        
+
+        }
 
     }
 
-    public void insert2(String dni, String nome, String telefono) {
+    public void insert2(String dni, String nombre, String telefono) {
 
        
 
@@ -235,7 +228,7 @@ public class Metodos {
 
         // el id se genera autómaticamente
 
-        String sql = "INSERT INTO FCT(dni,nome,telefono) VALUES(?,?,?)";
+        String sql = "INSERT INTO ESCUELA(dni,nombre,telefono) VALUES(?,?,?)";
 
  
 
@@ -245,7 +238,7 @@ public class Metodos {
 
             pstmt.setString(1, dni);
 
-            pstmt.setString(2, nome);
+            pstmt.setString(2, nombre);
 
             pstmt.setString(3, telefono);
 
@@ -263,13 +256,11 @@ public class Metodos {
 
     }
 
-    public void update(int id, String nome, String apellido, String ciudad) {
+    public void update(int id, String nombre, String apellido) {
 
-        String sql = "UPDATE alumno SET nome = ? , "
+        String sql = "UPDATE ALUMNO SET nombre = ? , "
 
-                + "apellido = ? , "
-
-                + "ciudad = ? "                
+                + "apellido = ?  "
 
                 + "WHERE id = ?";
 
@@ -283,13 +274,11 @@ public class Metodos {
 
             // set the corresponding param
 
-            pstmt.setString(1, nome);
+            pstmt.setString(1, nombre);
 
             pstmt.setString(2, apellido);
 
-            pstmt.setString(3, ciudad);            
-
-            pstmt.setInt(4, id);
+            pstmt.setInt(3, id);
 
             // update 
 
@@ -305,9 +294,9 @@ public class Metodos {
 
     
 
-    public void update2(String dni, String nome, String telefono) {
+    public void update2(String dni, String nombre, String telefono) {
 
-        String sql = "UPDATE FCT SET nome = ? , "               
+        String sql = "UPDATE ESCUELA SET nombre = ? , "               
 
                 + "telefono = ? "                
 
@@ -323,7 +312,7 @@ public class Metodos {
 
             // set the corresponding param
 
-            pstmt.setString(1, nome);
+            pstmt.setString(1, nombre);
 
             pstmt.setString(2, telefono);
 
@@ -345,7 +334,7 @@ public class Metodos {
 
     public void delete(int id) {
 
-        String sql = "DELETE FROM alumno WHERE id = ?";
+        String sql = "DELETE FROM ALUMNO WHERE id = ?";
 
  
 
@@ -375,7 +364,7 @@ public class Metodos {
 
     public void delete2(String dni) {
 
-        String sql = "DELETE FROM FCT WHERE dni = ?";
+        String sql = "DELETE FROM ESCUELA WHERE dni = ?";
 
  
 
@@ -405,7 +394,7 @@ public class Metodos {
 
     public String getCif(String id){
 
-        String sql = "SELECT dni FROM alumno where id ="+id;
+        String sql = "SELECT dni FROM ALUMNO where id ="+id;
 
         String dato = "";
 
@@ -441,7 +430,7 @@ public class Metodos {
 
         //para introducirlo en la tabla
 
-        String sql = "SELECT max(id) from alumno";
+        String sql = "SELECT max(id) from ALUMNO";
 
         int rowID = 0;
 
@@ -473,7 +462,7 @@ public class Metodos {
 
        ArrayList<Object[]> tablas  = new ArrayList<>();
 
-       String sql = "SELECT id, nome, apellido, ciudad, dni FROM alumno";
+       String sql = "SELECT id, nombre, apellido, dni FROM ALUMNO";
 
         
 
@@ -485,17 +474,15 @@ public class Metodos {
 
         while (rs.next()) {
 
-                Object[] datos = new Object[5];
+                Object[] datos = new Object[4];
 
                 datos[0] = Integer.toString(rs.getInt("id"));
 
-                datos[1] = rs.getString("nome");
+                datos[1] = rs.getString("nombre");
 
                 datos[2] = rs.getString("apellido");
 
-                datos[3] = rs.getString("ciudad");
-
-                datos[4] = rs.getString("dni");
+                datos[3] = rs.getString("dni");
 
                 
 
@@ -521,7 +508,7 @@ public class Metodos {
 
        ArrayList<Object[]> tablaE  = new ArrayList<>();
 
-       String sql = "SELECT dni, nome, telefono FROM FCT";
+       String sql = "SELECT dni, nombre, telefono FROM ESCUELA";
 
         
 
@@ -537,7 +524,7 @@ public class Metodos {
 
                 datos[0] = rs.getString("dni");
 
-                datos[1] = rs.getString("nome");
+                datos[1] = rs.getString("nombre");
 
                 datos[2] = rs.getString("telefono");
 

@@ -19,17 +19,8 @@ public class Database {
          createNewDatabase("testeo.db");
 
         ConsolaDB consola = new ConsolaDB();
-
         consola.setVisible(true);
-
-        
-
-
-
-        
-
         createNewTable();
-
         Metodos bd = new Metodos();
     }
     
